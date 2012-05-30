@@ -23,7 +23,7 @@ service users:
     - name:     ec2
       password: ec2
 
-    - name:     swfit
+    - name:     swift
       password: swiftpass
 
 # See: http://docs.openstack.org/essex/openstack-compute/install/content/keystone-service-endpoint-create.html
