@@ -34,7 +34,7 @@ services and endpoints:
       region:       RegionOne
       publicurl:    http://192.168.206.130:5000/v2.0
       internalurl:  http://192.168.206.130:5000/v2.0
-      adminurl:     http://192.168.206.130:35357/v2.0 
+      adminurl:     http://192.168.206.130:35357/v2.0
 
     - name:         nova
       type:         compute
