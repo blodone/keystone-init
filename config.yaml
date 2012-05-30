@@ -70,7 +70,7 @@ services and endpoints:
 
     - name:         swift
       type:         object-store
-      description:  Object Storage Service
+      description:  Swift Object Storage Service
       region:       RegionOne
       publicurl:    http://127.0.0.1:8080/v1/AUTH_%(tenant_id)s
       internalurl:  http://127.0.0.1:8080/
