@@ -58,7 +58,7 @@ services and endpoints:
       region:       RegionOne
       publicurl:    http://192.168.206.130:9292/v1
       internalurl:  http://192.168.206.130:9292/v1
-      adminurl:     http://192.168.206.130:9292/v1 
+      adminurl:     http://192.168.206.130:9292/v1
 
     - name:         ec2
       type:         ec2
