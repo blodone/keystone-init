@@ -26,6 +26,12 @@ service users:
     - name:     swift
       password: swiftpass
 
+    - name:     quantum
+      password: quantumpw
+
+    - name:     cinder
+      password: cinderpw
+
 # See: http://docs.openstack.org/essex/openstack-compute/install/content/keystone-service-endpoint-create.html
 services and endpoints:
     - name:         keystone
@@ -43,14 +49,6 @@ services and endpoints:
       publicurl:    http://192.168.206.130:8774/v2/%(tenant_id)s
       internalurl:  http://192.168.206.130:8774/v2/%(tenant_id)s
       adminurl:     http://192.168.206.130:8774/v2/%(tenant_id)s
-
-    - name:         volume
-      type:         volume
-      description:  Nova Volume Service
-      region:       RegionOne
-      publicurl:    http://192.168.206.130:8776/v1/%(tenant_id)s
-      internalurl:  http://192.168.206.130:8776/v1/%(tenant_id)s
-      adminurl:     http://192.168.206.130:8776/v1/%(tenant_id)s
 
     - name:         glance
       type:         image
@@ -75,3 +73,20 @@ services and endpoints:
       publicurl:    http://192.168.206.130:8888/v1/AUTH_%(tenant_id)s
       internalurl:  http://192.168.206.130:8888/v1/AUTH_%(tenant_id)s
       adminurl:     http://192.168.206.130:8888/v1
+
+    - name:         quantum
+      type:         network
+      description:  OpenStack Networking Service
+      region:       RegionOne
+      publicurl:    http://192.168.206.130:9696
+      internalurl:  http://192.168.206.130:9696
+      adminurl:     http://192.168.206.130:9696
+
+    - name:         cinder
+      type:         volume
+      description:  OpenStack Volume Service
+      region:       RegionOne
+      publicurl:    http://192.168.206.130:8776/v1/%(tenant_id)s
+      internalurl:  http://192.168.206.130:8776/v1/%(tenant_id)s
+      adminurl:     http://192.168.206.130:8776/v1/%(tenant_id)s
+
