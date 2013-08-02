@@ -15,13 +15,13 @@ default user:
 # See: http://docs.openstack.org/essex/openstack-compute/install/content/setting-up-tenants-users-and-roles.html
 service users:
     - name:     glance
-      password: glance
+      password: glancepw
 
     - name:     nova
-      password: nova
+      password: novapw
 
     - name:     ec2
-      password: ec2
+      password: ec2pw
 
     - name:     swift
       password: swiftpass
