@@ -1,16 +1,16 @@
 ---
 # token is the admin_token in keystone.conf
-token:    012345SECRET99TOKEN012345 
+token:    ADMIN
 endpoint: http://192.168.206.130:35357/v2.0
 
 default tenant:
-    name:        openstackDemo
+    name:        admin
     description: Default Tenant
 
 # This is the admin user
 default user:
-    name:     adminUser
-    password: secretword
+    name:     admin
+    password: password
 
 # See: http://docs.openstack.org/essex/openstack-compute/install/content/setting-up-tenants-users-and-roles.html
 service users:
