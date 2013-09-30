@@ -1,10 +1,10 @@
 ---
 # token is the admin_token in keystone.conf
 token:    ADMIN
-endpoint: http://127.0.0.1:35357/v2.0
+endpoint: http://keystone:35357/v2.0
 
 default tenant:
-    name:        admin
+    name:        tenant
     description: Default Tenant
 
 # This is the admin user
@@ -32,61 +32,91 @@ service users:
     - name:     cinder
       password: cinderpw
 
+    - name:     ceilometer
+      password: ceilometerpw
+
+    - name:     heat
+      password: heatpw
+
 # See: http://docs.openstack.org/essex/openstack-compute/install/content/keystone-service-endpoint-create.html
 services and endpoints:
     - name:         keystone
       type:         identity
       description:  Keystone Identity Service
       region:       RegionOne
-      publicurl:    http://127.0.0.1:5000/v2.0
-      internalurl:  http://127.0.0.1:5000/v2.0
-      adminurl:     http://127.0.0.1:35357/v2.0
+      publicurl:    http://keystone:5000/v2.0
+      internalurl:  http://keystone:5000/v2.0
+      adminurl:     http://keystone:35357/v2.0
 
     - name:         nova
       type:         compute
       description:  Nova Compute Service
       region:       RegionOne
-      publicurl:    http://127.0.0.1:8774/v2/%(tenant_id)s
-      internalurl:  http://127.0.0.1:8774/v2/%(tenant_id)s
-      adminurl:     http://127.0.0.1:8774/v2/%(tenant_id)s
+      publicurl:    http://nova-api:8774/v2/%(tenant_id)s
+      internalurl:  http://nova-api:8774/v2/%(tenant_id)s
+      adminurl:     http://nova-api:8774/v2/%(tenant_id)s
 
     - name:         glance
       type:         image
       description:  Glance Image Service
       region:       RegionOne
-      publicurl:    http://127.0.0.1:9292/v1
-      internalurl:  http://127.0.0.1:9292/v1
-      adminurl:     http://127.0.0.1:9292/v1
+      publicurl:    http://glance-api:9292/v1
+      internalurl:  http://glance-api:9292/v1
+      adminurl:     http://glance-api:9292/v1
 
     - name:         ec2
       type:         ec2
       description:  EC2 Compatibility Layer
       region:       RegionOne
-      publicurl:    http://127.0.0.1:8773/services/Cloud
-      internalurl:  http://127.0.0.1:8773/services/Cloud
-      adminurl:     http://127.0.0.1:8773/services/Admin
+      publicurl:    http://nova-api:8773/services/Cloud
+      internalurl:  http://nova-api:8773/services/Cloud
+      adminurl:     http://nova-api:8773/services/Admin
 
     - name:         swift
       type:         object-store
       description:  Swift Object Storage Service
       region:       RegionOne
-      publicurl:    http://127.0.0.1:8888/v1/AUTH_%(tenant_id)s
-      internalurl:  http://127.0.0.1:8888/v1/AUTH_%(tenant_id)s
-      adminurl:     http://127.0.0.1:8888/v1
+      publicurl:    http://swift:8888/v1/AUTH_%(tenant_id)s
+      internalurl:  http://swift:8888/v1/AUTH_%(tenant_id)s
+      adminurl:     http://swift:8888/v1
 
     - name:         quantum
       type:         network
       description:  OpenStack Networking Service
       region:       RegionOne
-      publicurl:    http://127.0.0.1:9696
-      internalurl:  http://127.0.0.1:9696
-      adminurl:     http://127.0.0.1:9696
+      publicurl:    http://quantum:9696
+      internalurl:  http://quantum:9696
+      adminurl:     http://quantum:9696
 
     - name:         cinder
       type:         volume
       description:  OpenStack Volume Service
       region:       RegionOne
-      publicurl:    http://127.0.0.1:8776/v1/%(tenant_id)s
-      internalurl:  http://127.0.0.1:8776/v1/%(tenant_id)s
-      adminurl:     http://127.0.0.1:8776/v1/%(tenant_id)s
+      publicurl:    http://quantum:8776/v1/%(tenant_id)s
+      internalurl:  http://quantum:8776/v1/%(tenant_id)s
+      adminurl:     http://quantum:8776/v1/%(tenant_id)s
+
+    - name:         ceilometer
+      type:         metering
+      description:  OpenStack Metering Service
+      region:       RegionOne
+      publicurl:    http://ceilometer:8777
+      internalurl:  http://ceilometer:8777
+      adminurl:     http://ceilometer:8777
+
+    - name:         heat
+      type:         heat
+      description:  OpenStack Heat Service
+      region:       RegionOne
+      publicurl:    http://heat:8004/v1/%(tenant_id)s
+      internalurl:  http://heat:8004/v1/%(tenant_id)s
+      adminurl:     http://heat:8004/v1/%(tenant_id)s
+
+    - name:         heat-cfn
+      type:         heat-cfn
+      description:  OpenStack Heat Cloudformation
+      region:       RegionOne
+      publicurl:    http://heat:8000/v1
+      internalurl:  http://heat:8000/v1
+      adminurl:     http://heat:8000/v1
 
