@@ -92,9 +92,9 @@ services and endpoints:
       type:         volume
       description:  OpenStack Volume Service
       region:       RegionOne
-      publicurl:    http://quantum:8776/v1/%(tenant_id)s
-      internalurl:  http://quantum:8776/v1/%(tenant_id)s
-      adminurl:     http://quantum:8776/v1/%(tenant_id)s
+      publicurl:    http://cinder-api:8776/v1/%(tenant_id)s
+      internalurl:  http://cinder-api:8776/v1/%(tenant_id)s
+      adminurl:     http://cinder-api:8776/v1/%(tenant_id)s
 
     - name:         ceilometer
       type:         metering
