@@ -105,7 +105,7 @@ services and endpoints:
       adminurl:     http://ceilometer:8777
 
     - name:         heat
-      type:         heat
+      type:         orchestration
       description:  OpenStack Heat Service
       region:       RegionOne
       publicurl:    http://heat:8004/v1/%(tenant_id)s
@@ -113,7 +113,7 @@ services and endpoints:
       adminurl:     http://heat:8004/v1/%(tenant_id)s
 
     - name:         heat-cfn
-      type:         heat-cfn
+      type:         cloudformation
       description:  OpenStack Heat Cloudformation
       region:       RegionOne
       publicurl:    http://heat:8000/v1
