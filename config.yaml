@@ -97,8 +97,8 @@ services and endpoints:
       adminurl:     http://cinder-api:8776/v1/%(tenant_id)s
 
     - name:         ceilometer
-      type:         metering
-      description:  OpenStack Metering Service
+      type:         telemetry
+      description:  OpenStack Telemetry Service
       region:       RegionOne
       publicurl:    http://ceilometer:8777
       internalurl:  http://ceilometer:8777
