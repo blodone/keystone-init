@@ -25,6 +25,7 @@ def check_keystone(config):
     print '{1}-{0}-{1}'.format('Users', '-'*10)
     print keystone.users.list()
     print 
+    return keystone
 
 def return_keystone(config_file='config.yml'):
     config = parse_config(config_file)

@@ -8,6 +8,12 @@ Usage: keystone-init.py config.yaml
 
 Edit the provided config.yaml file for your setup.
 
+
+!!!! NOT WORKING IF DEFAULT CONFIG !!!!!
+[catalog]
+/etc/keystone/default_catalog.templates <--- remove that out of the config and replace with
+driver = keystone.catalog.backends.sql.Catalog
+
 """
 import sys
 import yaml
@@ -84,12 +90,17 @@ def create_services_and_endpoints(keystone, config):
         service = keystone.services.create(name=d['name'],
                                            service_type=d['type'],
                                            description=d['description'])
+	#print 'Adding Service: {} {} {}'.format(d['name'],
+        #                                   	d['type'],
+        #                                   	d['description'])
+
 	try:
             keystone.endpoints.create(region=d['region'], service_id=service.id,
                                       publicurl=d['publicurl'],
                                       adminurl=d['adminurl'],
                                       internalurl=d['internalurl'])
 	except Exception as e:
+	    print 'ERROR adding endpoint for service {}'.format(service)
 	    print e
 
 if __name__ == '__main__':
